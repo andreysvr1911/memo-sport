@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Мемо Спорт</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <h1>Мемо Спорт</h1>
+
+    <div class="stats">
+      <span>Ходы: <b id="moves">0</b></span>
+      <span>Время: <b id="timer">0:00</b></span>
+      <span>Найдено: <b id="pairs">0</b>/25</span>
+    </div>
+
+    <div class="controls">
+      <button id="restart" type="button">Начать заново</button>
+      <button id="showRecords" type="button" class="secondary">Таблица рекордов</button>
+    </div>
+  </header>
+
+  <main>
+    <div id="board" class="board" aria-label="Игровое поле"></div>
+  </main>
+
+  <div id="zoomOverlay" class="zoom-overlay hidden">
+    <div class="zoom-card">
+      <img id="zoomImage" src="" alt="Увеличенное изображение">
+    </div>
+  </div>
+
+  <div id="winScreen" class="modal hidden">
+    <div class="modal-card">
+      <h2>Победа!</h2>
+      <p>Вы нашли все 25 пар.</p>
+      <p id="finalStats"></p>
+
+      <label class="name-label" for="playerName">Ваше имя для рекорда:</label>
+      <input id="playerName" type="text" maxlength="20" placeholder="Например, Алексей">
+
+      <div class="modal-buttons">
+        <button id="saveRecord" type="button">Сохранить рекорд</button>
+        <button id="playAgain" type="button" class="secondary">Играть снова</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="recordsScreen" class="modal hidden">
+    <div class="modal-card">
+      <h2>Таблица рекордов</h2>
+      <p class="records-note">Рекорды сохраняются в браузере игрока.</p>
+
+      <ol id="recordsList" class="records-list"></ol>
+
+      <div class="modal-buttons">
+        <button id="clearRecords" type="button" class="secondary">Очистить рекорды</button>
+        <button id="closeRecords" type="button">Закрыть</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
